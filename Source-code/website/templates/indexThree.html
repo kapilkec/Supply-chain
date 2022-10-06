@@ -1,0 +1,170 @@
+{%extends "layout.html"%}
+{% block content%}
+  <div class="container">
+    <div class="row">
+        <div class="inputTableName">ERP 15A MAP</div>
+
+        
+
+      <div class="col-12"> 
+        <div class="p-3 my-3">
+                <!-- Button trigger modal -->
+                <div class="row justify-content-around">
+                  <button type="button" class="btn btn-primary col-2 mb-3" data-toggle="modal" data-target="#modalAdd">
+                  ADD
+                  </button>
+                  
+                  <div class="input-group mb-3 col-4 mt-2">
+                    <input class="searchInput form-control" data-table-id="table1" type="search" placeholder="Search..." aria-label="Search"
+                      aria-target="table1">
+                    <div class="input-group-append">
+                      <span class="input-group-text bg-primary" id="basic-addon2"><i class='fa fa-search' aria-hidden='true'></i> </span>
+                    </div>
+                  </div>
+                </div>          
+
+          {% with messages = get_flashed_messages() %}
+          {% if messages %}
+          {% for message in messages %}
+          <div class="alert alert-success alert-dismissable" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="close">
+              <span aria-hidden="true">x</span>
+            </button>
+            {{message}}
+          </div>
+          
+          {% endfor %}
+          {%endif %}
+          {% endwith %}
+          
+          <!-- Modal ADD-->
+          <div class="modal fade" id="modalAdd" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                      <form method="post" action='{{url_for("views.inserterp15amap")}}'>
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">inOut</label>
+                          <input type="text" class="form-control" name="inOut"  required tab-index="1">
+                        </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Type</label>
+                        <input type="text" class="form-control" name="Type"  required tab-index="2">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputname1">Flag</label>
+                        <input type="text" class="form-control" name="Flag"  required tab-index="3">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputname1">StockInQty</label>
+                        <input type="text" class="form-control" name="StockInQty"  required tab-index="4">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputname1">QtyOfProducts</label>
+                        <input type="text" class="form-control" name="QtyOfProducts"  required tab-index="5">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputname1">QtyOfExported</label>
+                        <input type="text" class="form-control" name="QtyOfExported"  required tab-index="6">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputname1">otherPurpose</label>
+                        <input type="text" class="form-control" name="otherPurpose"  required tab-index="8">
+                      </div>
+                      <button type="submit" class="btn btn-primary" tab-index="9">Submit</button>
+                    </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <!-- table -->
+          <table class="sortTable table table-hover" id="table1">
+            <thead class=" table-dark">
+              <tr>
+                <th>inOUt</th>
+                <th>Type</th>
+                <th>Flag</th>
+                <th>StockInQty</th>
+                <th>QtyOfProducts</th>
+                <th>QtyOfExported</th>
+                <th>otherPurpose</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+        
+             
+              {% for row in data %}
+              <tbody class="table-light">
+                <tr>
+                  <td>{{row.inOut}}</td>
+                  <td>{{row.Type}}</td>
+                  <td>{{row.Flag}}</td>
+                  <td>{{row.StockInQty}}</td>
+                  <td>{{row.QtyOfProducts}}</td>
+                  <td>{{row.QtyOfExported}}</td>
+                  <td>{{row.otherPurpose}}</td>
+                  <td>
+                  <a href="/updateerp15amap/{{row.id}}" data-toggle="modal" data-target="#modalEdit{{row.id}}" style="color: green;"><i class="fa-solid fa-pen-to-square pr-3"></i></a>
+                  <a href="/deleteerp15amap/{{row.id}}" onclick="return confirm('Are you sure to delete?')" style="color: red;"><i class="fa-solid fa-trash-can"></i></a>
+                  </td>
+                </tr> 
+            </tbody>
+           
+          <!-- Modal Edit-->
+          <div class="modal fade" id="modalEdit{{row.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    <form method="POST" action="{{url_for('views.updateerp15amap')}}">
+                        <div class="form-group">
+                          <input type="hidden" name="id" value="{{row.id}}"><div class="form-group">
+                          <label for="exampleInputEmail1">inOut</label>
+                          <input type="text"  value={{row.inOut}} class="form-control" name="inOut"  required tab-index="1" >
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Type</label>
+                          <input type="text" class="form-control" name="Type" value={{row.inOut}} required tab-index="2">
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleInputname1">Flag</label>
+                          <input type="text" class="form-control" name="Flag" value={{row.Flag}}  required tab-index="3">
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleInputname1">StockInQty</label>
+                          <input type="text" class="form-control" name="StockInQty" value={{row.StockInQty}} required tab-index="4">
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleInputname1">QtyOfProducts</label>
+                          <input type="text" class="form-control" name="QtyOfProducts" value={{row.QtyOfProducts}} required tab-index="5">
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleInputname1">QtyOfExported</label>
+                          <input type="text" class="form-control" name="QtyOfExported" value={{row.QtyOfExported}} required tab-index="6">
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleInputname1">otherPurpose</label>
+                          <input type="text" class="form-control" name="otherPurpose" value={{row.otherPurpose}} required tab-index="8">
+                        </div>
+                        <button type="submit" class="btn btn-primary" tab-index="9">Submit</button>
+                      </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+          </table>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endblock%}

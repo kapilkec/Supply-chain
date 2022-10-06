@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Home</title>
+  <link rel='stylesheet' href='https://unpkg.com/css-pro-layout@1.1.0/dist/css/css-pro-layout.css'>
+  <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css'>
+  <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+   <!-- font awsome -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+   <!-- bootstrap css -->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+   <!-- bootstrap script -->
+   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+<!-- partial:index.partial.html -->
+
+<div class="layout has-sidebar fixed-sidebar fixed-header">
+  <aside id="sidebar" class="sidebar break-point-lg has-bg-image">
+    <div class="image-wrapper">
+      <img src="https://user-images.githubusercontent.com/25878302/144499035-2911184c-76d3-4611-86e7-bc4e8ff84ff5.jpg" alt="sidebar background" />
+    </div>
+    <div class="sidebar-layout">
+      <div class="sidebar-header">
+        <span style="
+                text-transform: uppercase;
+                font-size: 15px;
+                letter-spacing: 3px;
+                font-weight: bold;
+              ">Supply chain mgmt</span>
+      </div>
+      <div class="sidebar-content">
+        <nav class="menu open-current-submenu">
+          <ul>
+  
+            <li class="menu-item sub-menu">
+              <a href="{{url_for('views.excel1')}}">
+                <span class="menu-icon">
+                  <i class="ri-file-upload-line"></i>
+                </span>
+                <span class="menu-title">Upload</span>
+              </a>
+              <div class="sub-menu-list">
+                
+              </div>
+            </li>
+              <li class="menu-item sub-menu">
+              <a href="#">
+                <span class="menu-icon">
+                  <i class="ri-table-fill"></i>
+                </span>
+                <span class="menu-title">Input</span>
+              </a>
+              <div class="sub-menu-list">
+                <ul>
+                  <li class="menu-item">
+                    <a href="{{url_for('views.showerp15map')}}">
+                      <span class="menu-title">ERP 15 MAP</span>
+                    </a>
+                  </li>
+                  <li class="menu-item">
+                    <a href="{{url_for('views.showerpecus')}}">
+                      <span class="menu-title">ERP ECUS MAP</span>
+                    </a>
+                  </li>
+                  <li class="menu-item">
+                    <a href="{{url_for('views.showerp15amap')}}">
+                      <span class="menu-title">ERP 15A MAP</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="menu-item sub-menu">
+              <a href="{{url_for('views.query')}}">
+                <span class="menu-icon">
+                  <i class="ri-book-2-fill"></i>
+                </span>
+                <span class="menu-title">Intermediate</span>
+              </a>
+              <div class="sub-menu-list">
+                
+              </div>
+            </li>
+            <li class="menu-item sub-menu">
+              <a href="#">
+                <span class="menu-icon">
+                  <i class="ri-bar-chart-2-fill"></i>
+                </span>
+                <span class="menu-title">UI</span>
+              </a>
+              <div class="sub-menu-list">
+                <ul>
+                  <li class="menu-item">
+                    <a href="#">
+                      <span class="menu-title">Sort By Invoice</span>
+                    </a>
+                  </li>
+                  <li class="menu-item">
+                    <a href="#">
+                      <span class="menu-title">Sort By Part</span>
+                    </a>
+                  </li>
+                  <li class="menu-item">
+                    <a href="#">
+                      <span class="menu-title">Sort By Invoice</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="menu-item sub-menu">
+              <a href="#">
+                <span class="menu-icon">
+                  <i class="ri-brush-3-fill"></i>
+                </span>
+                <span class="menu-title">Theme</span>
+              </a>
+              <div class="sub-menu-list">
+                <ul>
+                  <li class="menu-item">
+                    <a href="#">
+                      <span class="menu-title">Dark</span>
+                    </a>
+                  </li>
+                  <li class="menu-item">
+                    <a href="#">
+                      <span class="menu-title">Light</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="sidebar-footer"><span>Sidebar footer</span></div>
+    </div>
+  </aside>
+  <div id="overlay" class="overlay"></div>
+  <div class="layout">
+    <header class="header">
+      <a id="btn-collapse" href="#">
+        <i class="ri-menu-line ri-xl"></i>
+      </a>
+      <a id="btn-toggle" href="#" class="sidebar-toggler break-point-lg">
+        <i class="ri-menu-line ri-xl"></i>
+      </a>
+    </header>
+    <main class="content">
+
+      <div>
+        {% block content%}
+        {%endblock%}
+      </div>
+
+      <footer class="footer">
+        <small style="margin-bottom: 20px; display: inline-block">
+          © 2022 SCM Lab
+          <span style="color: red; font-size: 18px">&#10084;</span> -
+          <a target="_blank" href="http://msl.hanyang.ac.kr/"> Hanyang University </a>
+        </small>
+        <br />
+        <div>
+        </div>
+      </footer>
+    </main>
+    <div class="overlay"></div>
+  </div>
+</div>
+
+
+
+<!-- partial -->
+  <script src='https://unpkg.com/@popperjs/core@2'></script>
+  <script  src="{{ url_for('static',filename='script/script.js') }}"></script>
+  <script  src="{{ url_for('static',filename='script/searchTable.js') }}"></script>
+  <script  src="{{ url_for('static',filename='script/sortTable.js') }}"></script>
+
+
+</body>
+</html>
+

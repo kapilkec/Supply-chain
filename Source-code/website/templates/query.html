@@ -1,0 +1,42 @@
+
+{%extends "layout.html"%}
+{% block content %}
+    
+    <div class="d-flex flex-row queryButton">
+        <a type="button" class="btn btn-secondary my-3" href="/executeQuery/0">ERP INOUT</a>
+        <a type="button" class="btn btn-primary my-3" href="/executeQuery/1">ERP INOUT</a>
+        <a type="button" class="btn btn-primary my-3" href="/executeQuery/2">ERP INOUT</a>
+        <a type="button" class="btn btn-primary my-3" href="/executeQuery/3">ERP INOUT</a>
+        <a type="button" class="btn btn-primary my-3" href="/executeQuery/4">ERP INOUT</a>
+        <a type="button" class="btn btn-primary my-3" href="/executeQuery/5">ERP INOUT</a>
+    </div>
+
+    <div class="input-group mb-5 col-4 mt-2">
+      <input class="searchInput form-control" data-table-id="table1" type="search" placeholder="Search..." aria-label="Search"
+        aria-target="table1">
+      <div class="input-group-append">
+        <span class="input-group-text bg-primary" id="basic-addon2"><i class='fa fa-search' aria-hidden='true'></i> </span>
+      </div>
+    </div>
+
+    <table class="sortTable table table-hover querytable" id="table1">
+        <thead class="table-dark">
+          <tr>
+            {% for name in attribute %}
+              <th>{{name}}</th>
+            {%endfor%}
+          </tr> 
+        </thead>
+        <tbody class="table-light">
+          {% for row in data %}
+            <tr>
+              {% for field in row %}
+                <td>{{field}}</td>
+              {%endfor%}
+            </tr> 
+          {%endfor%}
+        </tbody>
+    </table>
+
+
+{% endblock %}

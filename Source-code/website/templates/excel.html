@@ -1,0 +1,67 @@
+{%extends "layout.html"%}
+{% block content%}
+
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+  {% for message in messages %}
+  <div class="alert alert-success alert-dismissable excelAlert" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="close">
+      <span aria-hidden="true">x</span>
+        </button>
+          {{message}}
+        </div>
+          
+  {% endfor %}
+  {%endif %}
+  {% endwith %}
+  
+
+  <div class="select-container">
+    <form  method="post">
+      <div class="select">
+        <input type="text" id="input" name="fileName" placeholder="select" onfocus="this.blur();">
+      </div>
+      <div class="option-container">
+        <div class="option">
+            <label> StandardERP </label>
+        </div>
+        <div class="option">
+            <label>FormA</label>
+        </div>
+        <div class="option">
+            <label>ECUS</label>
+        </div>
+        <div class="option">
+            <label>StandardProdBOM</label>
+        </div>
+        <div class="option">
+            <label>Form</label>
+        </div>
+        <div class="option">
+            <label>StandardSemiProdBOM</label>
+        </div>
+      </div>
+      <input type="submit" formaction="/addExcel" value="Update" class="btn btn-success">
+      <input type="submit" formaction="/ExcelDel" value="Delete" class="btn btn-danger">
+    </form>
+    
+  </div>
+
+
+    <!-- <div>
+      <form  method="post">
+        <label for="file">Choose a excel file :</label>
+        <select name="fileName" id="file">
+          <option value="StandardERP">StandardERP</option>
+          <option value="FormA">FormA</option>
+          <option value="ECUS">ECUS</option>
+          <option value="StandardProdBOM">StandardProdBOM</option>
+          <option value="Form">Form</option>
+          <option value="StandardSemiProdBOM">StandardSemiProdBOM</option>
+        </select>
+        <br><br>
+        
+      </form>
+    </div> -->
+ 
+{%endblock%}
